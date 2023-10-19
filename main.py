@@ -2,6 +2,23 @@ from flask import Flask, render_template, request, jsonify
 import os
 import cv2
 import numpy as np
+import requests
+
+
+# URL de los archivos en GitHub
+weights_url = "https://pjreddie.com/media/files/yolov3.weights"
+cfg_url = "https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3.cfg"
+coco_names_url = "https://raw.githubusercontent.com/pjreddie/darknet/master/data/coco.names"
+
+# Descargar los archivos desde GitHub
+with open("yolov3.weights", "wb") as weights_file:
+    weights_file.write(requests.get(weights_url).content)
+
+with open("yolov3.cfg", "wb") as cfg_file:
+    cfg_file.write(requests.get(cfg_url).content)
+
+with open("coco.names", "wb") as coco_names_file:
+    coco_names_file.write(requests.get(coco_names_url).content)
 
 
 app = Flask(__name__)
