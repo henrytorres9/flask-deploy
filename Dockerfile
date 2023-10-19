@@ -1,5 +1,5 @@
-# Utiliza una imagen base de Python 3.9
-FROM python:3.9
+# Utiliza una imagen base de Python 3.12
+FROM python:3.12.0
 
 # Instala libGL.so.1 y otras dependencias
 RUN apt-get update && apt-get install -y libgl1-mesa-glx
