@@ -2,7 +2,7 @@
 FROM python:3.12.0
 
 # Instala libGL.so.1 y otras dependencias
-RUN apt-get update && apt-get install -y libgl1-mesa-glx
+# RUN apt-get update && apt-get install -y libgl1-mesa-glx
 
 # Establece el directorio de trabajo
 WORKDIR /app
