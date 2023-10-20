@@ -2,22 +2,16 @@ from flask import Flask, render_template, request, jsonify
 import os
 import cv2
 import numpy as np
-import requests
-
-
-# URL de los archivos en GitHub
-weights_url = "https://github.com/henrytorres9/flask-deploy/blob/main/yolov3.weights"
-
-# Descargar los archivos desde GitHub
-with open("yolov3.weights", "wb") as weights_file:
-    weights_file.write(requests.get(weights_url).content)
 
 
 app = Flask(__name__)
 
 
+weights_path = os.path.join(os.getcwd(), "yolov3.weights")
+cfg_path = os.path.join(os.getcwd(), "yolov3.cfg")
+
 # Cargar la configuración y los pesos pre-entrenados
-net = cv2.dnn.readNet("yolov3.weights", "yolov3.cfg")
+net = cv2.dnn.readNet(weights_path, cfg_path)
 layer_names = net.getUnconnectedOutLayersNames()
 
 # Cargar las clases
