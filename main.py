@@ -6,9 +6,9 @@ import requests
 
 
 # URL de los archivos en GitHub
-weights_url = "./yolov3.weights"
-cfg_url = "./yolov3.cfg"
-coco_names_url = "./coco.names"
+weights_url = "https://github.com/henrytorres9/flask-deploy/blob/main/yolov3.weights"
+cfg_url = "https://raw.githubusercontent.com/henrytorres9/flask-deploy/main/yolov3.cfg"
+coco_names_url = "https://raw.githubusercontent.com/henrytorres9/flask-deploy/main/coco.names"
 
 # Descargar los archivos desde GitHub
 with open("yolov3.weights", "wb") as weights_file:
